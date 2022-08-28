@@ -1,0 +1,133 @@
+﻿@model IEnumerable<HumanResource.Models.SalaryReport>
+@{
+    ViewData["Title"] = "Salary Report";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title-wrap bar-success">
+                    <h4 class="card-title">Salary report</h4>
+                </div>
+            </div>
+            <div class="card-body collapse show">
+                <div class="card-block card-dashboard">
+                    <p class="card-text">
+                        DataTables has most features enabled by default,
+                        so all you need to do to use it with your own ables is to call the construction
+                    </p>
+                    <form asp-action="Index">
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="dataTables_length" id="DataTables_Table_0_length">
+                                    <label>
+                                        Year
+                                        <select name="yy" aria-controls="DataTables_Table_0" class="form-control form-control-sm">
+                                            <option value="@ViewBag.Year">* @ViewBag.Year</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2024">2024</option>
+                                            <option value="2023">2023</option>
+                                            <option value="2022">2022</option>
+                                            <option value="2021">2021</option>
+                                            <option value="2020">2020</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2017">2017</option>
+                                            <option value="2016">2016</option>
+                                            <option value="2015">2015</option>
+                                            <option value="2014">2014</option>
+                                            <option value="2013">2013</option>
+                                            <option value="2012">2012</option>
+                                            <option value="2011">2011</option>
+                                            <option value="2010">2010</option>
+                                            <option value="2009">2009</option>
+                                            <option value="2008">2008</option>
+
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="dataTables_length" id="DataTables_Table_0_length">
+                                    <label>
+                                        Month
+                                        <select name="mm" aria-controls="DataTables_Table_0" class="form-control form-control-sm">
+                                            <option value="@ViewBag.Month">* @ViewBag.Month</option>
+                                            <option value="12">12</option>
+                                            <option value="11">11</option>
+                                            <option value="10">10</option>
+                                            <option value="9">9</option>
+                                            <option value="8">8</option>
+                                            <option value="7">7</option>
+                                            <option value="6">6</option>
+                                            <option value="5">5</option>
+                                            <option value="4">4</option>
+                                            <option value="3">3</option>
+                                            <option value="2">2</option>
+                                            <option value="1">1</option>
+
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <button id="addRow" type="submit" class="btn btn-primary mb-2">
+                                    <i class="ft-search"></i>&nbsp;
+                                    <a>  Search Employee</a>
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                    <hr />
+                   
+                            <table class="table table-striped table-bordered zero-configuration mt-40" id="datatablesSimple">
+                                <thead>
+                                    <tr>
+
+                                        <th> Name</th>
+                                        <th>SSN</th>
+                                        <th>Attendance </th>
+                                        <th>Absence</th>
+                                        <th>Holidayes</th>
+                                        <th>Salary</th>
+                                        <th>Discount</th>
+                                        <th>Overtime</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.EmployeeName</td>
+                                            <td>@item.EmployeeSSn</td>
+                                            <td>@item.Attendance</td>
+                                            <td>@item.Absence</td>
+                                            <td>@item.Holidayes</td>
+                                            <td>@item.Salary</td>
+                                            <td>@item.TotalDiscount </td>
+                                            <td>@item.TotalExtra</td>
+                                            <td>@item.TotalSalary</td>
+
+                                        </tr>
+                                    }
+
+
+
+
+                                </tbody>
+
+                            </table>
+                        
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+                        
+                  

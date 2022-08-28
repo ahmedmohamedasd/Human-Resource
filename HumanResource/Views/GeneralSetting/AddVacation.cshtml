@@ -1,0 +1,61 @@
+﻿@model HumanResource.Models.OfficialVacations
+
+@{
+    ViewData["Title"] = "AddVacation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title-wrap bar-success">
+                    <h4 class="card-title">Add Official Vacation</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="px-3">
+                    <form class="form form-horizontal" method="post" asp-action="AddVacation">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-body">
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control"> Name : </label>
+                                <div class="col-md-9">
+                                    <input asp-for="Name" class="form-control">   
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control">Date: </label>
+                                <div class="col-md-9">
+                                    <div class="position-relative has-icon-left">
+                                        <input asp-for="Date" class="form-control">
+                                        <div class="form-control-position">
+                                            <i class="ft-message-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <a asp-action="OficialVacation" asp-controller="GeneralSetting" class="btn btn-danger mr-1">
+                                <i class="icon-trash"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon-note"></i> Save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
